@@ -2,7 +2,11 @@
 #include <filesystem>
 #include <iostream>
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv)
+{
     std::cout << std::filesystem::current_path() << std::endl;
-    return lava::check(VK_SUCCESS) ? 0 : 1;
+    lava::app app("example", { argc, argv });
+    if(!app.setup())
+        return lava::error::not_ready;
+    return 0;
 }

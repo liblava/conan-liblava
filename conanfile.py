@@ -75,13 +75,14 @@ class LiblavaConan(ConanFile):
         self.cpp_info.defines += ["SPDLOG_COMPILED_LIB"]
 
         self.cpp_info.libs = [
-            "lava.core",
-            "lava.util",
-            "lava.base",
-            "lava.resource",
-            "lava.frame",
-            "lava.block",
+            # in correct linking order
             "lava.app",
+            "lava.block",
+            "lava.frame",
+            "lava.resource",
+            "lava.base",
+            "lava.util",
+            "lava.core",
             "glfw3",
             "physfs" if self.settings.compiler != "Visual Studio" else "physfs-static",
             "spdlog"
@@ -93,6 +94,7 @@ class LiblavaConan(ConanFile):
 
         if self.settings.get_safe("compiler") in ["gcc", "clang"]:
             thread_flag = "-pthread"
-            self.cpp_info.cxxflags     += [thread_flag]
-            self.cpp_info.exelinkflags += [thread_flag]
+            self.cpp_info.cxxflags        += [thread_flag]
+            self.cpp_info.sharedlinkflags += [thread_flag]
+            self.cpp_info.exelinkflags    += [thread_flag]
             self.cpp_info.system_libs += ["dl"]

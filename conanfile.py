@@ -4,7 +4,7 @@ from conans import ConanFile, CMake, tools
 
 class LiblavaConan(ConanFile):
     name = "liblava"
-    version = "0.5.5"
+    version = "0.6.0"
     license = "MIT"
     author = "Lava Block OÜ (lib@lava-block.com)"
     url = "https://github.com/liblava/liblava"
@@ -79,8 +79,10 @@ class LiblavaConan(ConanFile):
             "lava.app",
             "lava.block",
             "lava.frame",
+            "lava.asset",
             "lava.resource",
             "lava.base",
+            "lava.file",
             "lava.util",
             "lava.core",
             "glfw3",

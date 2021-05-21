@@ -62,5 +62,7 @@ To add a new [tagged lava version](https://github.com/liblava/liblava/tags):
 1. Modify conanfile.py
     - update version field
     - if necessary, adapt to any changes to lava's build system
-2. Push to *latest* branch
-3. Create new branch *stable/%version%* from *latest*
+2. Modify README.md
+    - update version in Usage / requires section
+4. Push to *latest* branch
+5. Create new branch *stable/%version%* from *latest*

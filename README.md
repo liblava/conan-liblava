@@ -55,6 +55,18 @@ conan install ..
 
 For more information, refer to [Using packages](https://docs.conan.io/en/latest/using_packages.html).
 
+## Options
+
+The following options can be configured:
+
+| Option  | Description                          | Default |
+|---------|--------------------------------------|---------|
+| fPIC    | Generate position-independent code   | True    |
+| test    | Build and install lava test binaries | False   |
+| demo    | Build and install lava demo binaries | False   |
+
+For information on how to set them, refer to [Options](https://docs.conan.io/en/latest/using_packages/conanfile_txt.html#options).
+
 # New version
 
 To add a new [tagged lava version](https://github.com/liblava/liblava/tags):

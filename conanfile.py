@@ -9,16 +9,20 @@ class LiblavaConan(ConanFile):
     author = "Lava Block OÜ (lib@lava-block.com)"
     url = "https://github.com/liblava/liblava"
     description = "A modern and easy-to-use library for the Vulkan API"
-    topics = ("vulkan", "graphics", "rendering") # TODO
+    topics = ("vulkan", "graphics", "rendering")
     settings = "os", "compiler", "build_type", "arch"
     # TODO shared library build
     # requires changes to liblava CMakeLists.txt and settings for subrepos
     options = {
-        "fPIC": [True, False]
+        "fPIC": [True, False],
+        "test": [True, False],
+        "demo": [True, False],
         #"shared": [True, False]
     }
     default_options = {
-        "fPIC": True
+        "fPIC": True,
+        "test": False,
+        "demo": False,
         #"shared": False
     }
     generators = "cmake"
@@ -27,6 +31,9 @@ class LiblavaConan(ConanFile):
     def _configure_cmake(self):
         cmake = CMake(self)
         cmake.definitions["CMAKE_POSITION_INDEPENDENT_CODE"] = "ON" if self.options.get_safe("fPIC") else "OFF"
+        cmake.definitions["LIBLAVA_TESTS"] = "ON" if self.options.get_safe("test") else "OFF"
+        cmake.definitions["LIBLAVA_DEMO"] = "ON" if self.options.get_safe("demo") else "OFF"
+        cmake.definitions["LIBLAVA_TEMPLATE"] = "OFF"
         cmake.configure()
         return cmake
 

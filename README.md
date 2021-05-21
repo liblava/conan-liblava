@@ -54,3 +54,13 @@ conan install ..
 ```
 
 For more information, refer to [Using packages](https://docs.conan.io/en/latest/using_packages.html).
+
+# New version
+
+To add a new [tagged lava version](https://github.com/liblava/liblava/tags):
+
+1. Modify conanfile.py
+    - update version field
+    - if necessary, adapt to any changes to lava's build system
+2. Push to *latest* branch
+3. Create new branch *stable/%version%* from *latest*

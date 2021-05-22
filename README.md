@@ -55,7 +55,7 @@ conan install ..
 
 For more information, refer to [Using packages](https://docs.conan.io/en/latest/using_packages.html).
 
-## Options
+# Options
 
 The following options can be configured:
 

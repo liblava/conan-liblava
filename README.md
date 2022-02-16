@@ -42,7 +42,7 @@ Add a dependency to liblava to your project's *conanfile.txt*:
 
 ```ini
 [requires]
-liblava/0.6.3@lavablock/stable
+liblava/0.7.0@lavablock/stable
 ```
 
 and install all requirements:

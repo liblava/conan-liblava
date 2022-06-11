@@ -4,7 +4,7 @@ from conans import ConanFile, CMake, tools
 
 class LiblavaConan(ConanFile):
     name = "liblava"
-    version = "0.7.0"
+    version = "0.7.1"
     license = "MIT"
     author = "Lava Block OÜ (lib@lava-block.com)"
     url = "https://github.com/liblava/liblava"
@@ -31,7 +31,7 @@ class LiblavaConan(ConanFile):
     def _configure_cmake(self):
         cmake = CMake(self)
         cmake.definitions["CMAKE_POSITION_INDEPENDENT_CODE"] = "ON" if self.options.get_safe("fPIC") else "OFF"
-        cmake.definitions["LIBLAVA_TESTS"] = "ON" if self.options.get_safe("test") else "OFF"
+        cmake.definitions["LIBLAVA_TEST"] = "ON" if self.options.get_safe("test") else "OFF"
         cmake.definitions["LIBLAVA_DEMO"] = "ON" if self.options.get_safe("demo") else "OFF"
         cmake.definitions["LIBLAVA_TEMPLATE"] = "OFF"
         cmake.configure()
@@ -48,7 +48,7 @@ class LiblavaConan(ConanFile):
     def source(self):
         git = tools.Git()
         git.clone(self.url)
-        git.checkout(self.version, submodule="recursive")
+        git.checkout(self.version)
 
         # guarantee proper /MT /MD linkage in MSVC
         project_line = "project(liblava VERSION {} LANGUAGES C CXX)".format(self.version)
@@ -83,6 +83,7 @@ class LiblavaConan(ConanFile):
 
         self.cpp_info.libs = [
             # in correct linking order
+            "lava.engine",
             "lava.app",
             "lava.block",
             "lava.frame",
@@ -92,6 +93,7 @@ class LiblavaConan(ConanFile):
             "lava.file",
             "lava.util",
             "lava.core",
+            "shaderc_combined",
             "glfw3",
             "physfs" if self.settings.compiler != "Visual Studio" else "physfs-static",
             "spdlog"

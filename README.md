@@ -19,13 +19,13 @@ include(default)
 
 [settings]
 compiler=clang
-compiler.version=9
+compiler.version=13
 compiler.cppstd=20
 build_type=Release
 
 [env]
-CC=clang-9
-CXX=clang++-9
+CC=clang-13
+CXX=clang++
 ```
 
 Save it as *config_clang* and create the package:
@@ -42,7 +42,7 @@ Add a dependency to liblava to your project's *conanfile.txt*:
 
 ```ini
 [requires]
-liblava/0.7.1@lavablock/stable
+liblava/0.7.2@lavablock/stable
 ```
 
 and install all requirements:

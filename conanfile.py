@@ -6,8 +6,8 @@ class LiblavaConan(ConanFile):
     name = "liblava"
     version = "0.7.3"
     license = "MIT"
-    author = "Lava Block OÜ (lib@lava-block.com)"
-    url = "https://github.com/liblava/liblava"
+    author = "Lava Block OÜ (code@liblava.dev)"
+    url = "https://liblava.dev"
     description = "A modern and easy-to-use library for the Vulkan API"
     topics = ("vulkan", "graphics", "rendering")
     settings = "os", "compiler", "build_type", "arch"

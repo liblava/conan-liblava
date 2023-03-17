@@ -1,6 +1,8 @@
-# Conan package recipe for [liblava](https://github.com/liblava/liblava).
+# Conan package recipe for [liblava](https://liblava.dev)
 
-liblava is a modern and easy-to-use library for the Vulkan® API
+liblava is a modern C++ and easy-to-use library for the Vulkan® API
+
+<br />
 
 # Build and package
 
@@ -36,6 +38,8 @@ conan create . lavablock/stable -pr=config_clang
 
 For more profile configuration options, refer to the [Conan docs](https://docs.conan.io/en/latest/reference/profiles.html).
 
+<br />
+
 # Usage
 
 Add a dependency to liblava to your project's *conanfile.txt*:
@@ -55,6 +59,8 @@ conan install ..
 
 For more information, refer to [Using packages](https://docs.conan.io/en/latest/using_packages.html).
 
+<br />
+
 # Options
 
 The following options can be configured:
@@ -67,6 +73,8 @@ The following options can be configured:
 
 For information on how to set them, refer to [Options](https://docs.conan.io/en/latest/using_packages/conanfile_txt.html#options).
 
+<br />
+
 # New version
 
 To add a new [tagged lava version](https://github.com/liblava/liblava/tags):
@@ -78,3 +86,9 @@ To add a new [tagged lava version](https://github.com/liblava/liblava/tags):
     - update version in Usage / requires section
 4. Push to *latest* branch
 5. Create new branch *stable/%version%* from *latest*
+
+<br />
+
+<br />
+
+<a href="https://liblava.dev"><img src="https://github.com/liblava.png" width="50"></a>
